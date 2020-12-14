@@ -1,0 +1,90 @@
+<body background="assets/pen1.jpg">
+<div class="p-3 mb-2 bg-light text-dark">
+
+<div class="tableaux">
+<table  border=4>
+<caption style='color: #0037ff'> <strong>Initialiser l'echelle</strong> </caption>
+<tr>
+     <td> <label>L'axe X en cm</label> </td>
+     <td><label>L'axe Y en cm</label></td>
+     </tr>
+    <tr>    <td><input [(ngModel)]="x" (ngModelChange)="valuechange($event)" required></td>
+            <td><input [(ngModel)]="y" (ngModelChange)="valuechange($event)" required></td>
+    </tr>
+     </table>
+     </div>
+     <div class="tableaux" style='color: #42bbc7'>
+      Espace entre deux tableau
+     </div>
+     <div class="tableaux">
+     <table  border=4>
+<caption style='color: #0037ff'> <strong>Initialiser l'aspirateur</strong> </caption>
+<tr>
+     <td> <label>Position en X</label> </td>
+     <td><label>Position en Y</label></td>
+     <td><label>Choisir La Direction initial</label></td>
+     </tr>
+    <tr>    <td><input [(ngModel)]="x1" (ngModelChange)="valuechange($event)" type="number" min="0" required></td>
+            <td><input [(ngModel)]="y1" (ngModelChange)="valuechange($event)" type="number" min="0" required></td>
+            <td><select [(ngModel)]="position" (ngModelChange)="valuechange($event)">
+      <option value="N">Nord</option>
+      <option value="S">Sud</option>
+      <option value="W">Ouest</option>
+      <option value="E">Est</option>
+    </select></td>
+    </tr>
+     </table>
+     </div>
+    <br>
+    <table  border=4>
+<caption style='color: #0037ff'> <strong>Choisir les instructions à faire de maniére automatique</strong> </caption>
+<tr>
+     <td> <label>Choisir en utilisant liste déroulante</label> </td>
+     <td><label>Ajouter L'instruction</label></td>
+     <td><label>Executer L'instruction saisie</label></td>
+     </tr>
+    <tr>    <td><select name="instruction" [(ngModel)]="instruction" >
+      <option value="A">Avancer d'une case</option>
+      <option value="D">pivoter l’aspirateur de 90° à droite</option>
+      <option value="G">pivoter l’aspirateur de 90° à gauche</option>
+
+    </select>
+
+    </td>
+            <td style="text-align: center;">
+            <button type="button" class="btn btn-primary" (click)="ajouter()">OK</button>
+
+            </td>
+            <td style="text-align: center;">
+            <button  type="button" class="btn btn-primary" (click)="lancer()">Lancer aspirateur automatique</button>
+
+            </td>
+    </tr>
+     </table>
+
+    <div style="text-align: center;">
+      <table>
+        <tr style='color: #FF0000'>
+          <strong><td >l'instruction souhaitée:</td></strong>
+          <strong><td *ngFor="let row of listInstructions"style='color: #000000'>{{row}}</td></strong>
+
+        </tr>
+
+
+      </table>
+    </div>
+
+
+
+
+
+
+<ag-charts-angular [options]="options" ></ag-charts-angular>
+<div style="text-align: center;">
+  <button type="button" class="btn btn-primary" (click)="avancer()">Avancer d'une case</button>
+  <button type="button" class="btn btn-primary" (click)="tournerGauche()">pivoter l’aspirateur de 90° à gauche</button>
+  <button type="button" class="btn btn-primary" (click)="tournerDroit()">pivoter l’aspirateur de 90° à droite</button>
+
+</div>
+</div>
+</body>
